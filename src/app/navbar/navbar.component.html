@@ -1,0 +1,56 @@
+
+<header id="header" class="fixed-top">
+<nav>
+  <div class="bg-white bg-opacity-10 shadow-lg rounded-lg p-4">
+    
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <div >
+          <a routerLink="/home">
+          <img src="../../assets/img/logo.png" style="width: 160px;">
+        </a>
+        </div>
+        <div class="hidden sm:flex sm:items-center justify-end w-full mr-8" (document:click)="closeDropdown($event)">
+        
+
+          <div class="relative" *ngIf="authService.isSuperUser">
+            <a class="nav-link" routerLink="/dashboard">Tableau de bord</a>
+            <a class="nav-link" (click)="toggleDropdown($event)">Département</a>
+            <div class="dropdown-menu" *ngIf="showDropdown">
+              <a class="dropdown-item" routerLink="/Department/informatique">Informatique</a>
+              <hr class="mt-0 mb-0">
+              <a class="dropdown-item" routerLink="/Department/vente">Ressources humaines</a>
+              <hr class="mt-0 mb-0">
+              <a class="dropdown-item" routerLink="/Department/achat">Service recouvrement</a>
+              <hr class="mt-0 mb-0" style="color: white;">
+              <a class="dropdown-item" routerLink="/viewAll"><strong>Tous les employés</strong></a>
+            </div>
+            
+            <a class="nav-link" routerLink="/add">Ajouter employé</a>
+
+            <a class="nav-link" routerLink="/les-Demandes" (click)="getDemandes()">
+              demandes
+              <span *ngIf="hasNewDemandes" class="notification-dot">!</span>
+            </a>
+          </div>
+          <div class="relative" *ngIf="authService.isAuthenticated && !authService.isSuperUser">
+            <a class="nav-link" routerLink="/home">Accueil</a>
+            <a class="nav-link" routerLink="/myprofile">Mon profil</a>
+          </div>
+          
+          
+      
+      </div>
+      
+      
+      
+      
+      
+        <div class="hidden sm:flex sm:items-center">
+          <button class="text-gray-800 text-sm font-semibold border text-white px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600"(click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
