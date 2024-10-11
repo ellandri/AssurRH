@@ -1,6 +1,7 @@
 /* dashboard-admin.component.css */
 
 .admin-dashboard-container {
+    margin-top: 100px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(387px, 1fr)); /* Colonnes responsives */
     grid-gap: 20px; /* Espacement entre les éléments */
